@@ -2,32 +2,15 @@
 
 A complete messaging web application built with PHP, MySQL, and modern frontend technologies. Features include user authentication, profile management, and a real-time two-way messaging system.
 
-## 📋 Table of Contents
-- [Features](#features)
-- [Technical Stack](#technical-stack)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#️-configuration)
-- [Default Test Users](#-default-test-users)
-- [Usage](#usage)
-- [Security Features](#security-features)
-- [API Endpoints](#api-endpoints)
-- [Additional Files](#-additional-files)
-- [Troubleshooting](#️-troubleshooting)
-- [Contributing](#-contributing)
-- [License](#license)
-- [Author](#author)
+## Highlights
 
-## ✨ Highlights
-
-- 🚀 **Zero Dependencies**: Pure PHP with no framework overhead
-- 💬 **Real-time Messaging**: Auto-refresh every 3 seconds for instant communication
-- 🔒 **Secure**: Bcrypt password hashing, prepared statements, XSS protection
-- 📱 **Responsive Design**: Built with Tailwind CSS for mobile-first experience
-- 🖼️ **Rich Media**: Support for image sharing in conversations
-- 👥 **User Management**: Complete profile system with avatar uploads
-- 📊 **MVC Architecture**: Clean, maintainable code structure
+- **Zero Dependencies**: Pure PHP with no framework overhead
+- **Real-time Messaging**: Auto-refresh every 3 seconds for instant communication
+- **Secure**: Bcrypt password hashing, prepared statements, XSS protection
+- **Responsive Design**: Built with Tailwind CSS for mobile-first experience
+- **Rich Media**: Support for image sharing in conversations
+- **User Management**: Complete profile system with avatar uploads
+- **MVC Architecture**: Clean, maintainable code structure
 
 ## Features
 
@@ -68,7 +51,7 @@ A complete messaging web application built with PHP, MySQL, and modern frontend 
 - **JavaScript (ES6+)** - Client-side interactivity
 - **AJAX/Fetch API** - Asynchronous communication
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 message-app/
@@ -105,7 +88,7 @@ message-app/
 ├── .gitignore             # Git ignore rules
 └── README.md              # Project documentation
 
-## 📦 Prerequisites
+## Prerequisites
 
 - PHP 7.4 or higher
 - MySQL 5.7 or higher
@@ -113,7 +96,7 @@ message-app/
 - PHP extensions: PDO, pdo_mysql, gd (for image processing)
 - Composer (optional, for future dependencies)
 
-## 🚀 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -174,44 +157,8 @@ message-app/
    
    Open your browser and navigate to: `http://localhost:8000`
 
-## 📁 Project Structure
 
-```
-message-app/
-├── config/
-│   ├── config.php          # Application configuration and helper functions
-│   └── database.php        # Database connection handler
-├── controllers/
-│   ├── AuthController.php      # Authentication logic
-│   ├── MessageController.php   # Message operations
-│   └── ProfileController.php   # User profile management
-├── models/
-│   ├── Message.php         # Message model
-│   └── User.php            # User model
-├── public/
-│   ├── js/
-│   │   ├── auth.js         # Authentication frontend logic
-│   │   ├── messages.js     # Messaging frontend logic
-│   │   └── profile.js      # Profile management frontend logic
-   └── uploads/
-       ├── messages/       # Message image uploads
-       │   └── .gitkeep    # Keep directory in git
-       └── profiles/       # Profile picture uploads
-           └── .gitkeep    # Keep directory in git
-├── views/
-│   ├── logout.php          # Logout page
-│   ├── messages.php        # Main messaging interface
-│   ├── profile.php         # User profile page
-│   └── register.php        # Registration page
-├── database.sql            # Database schema and seed data
-├── index.php               # Login page (entry point)
-├── .env.example            # Environment variables template
-├── .htaccess               # Apache configuration
-├── .gitignore              # Git ignore rules
-└── README.md               # Project documentation
-```
-
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 The application uses a `.env` file for configuration. Use `.env.example` as a template:
@@ -236,7 +183,7 @@ The `.htaccess` file includes:
 - Directory browsing disabled
 - GZIP compression enabled
 
-## 👥 Default Test Users
+## Default Test Users
 
 The database includes test users with the password `password123`:
 
@@ -268,7 +215,7 @@ The database includes test users with the password `password123`:
 2. Click the delete icon (trash can)
 3. Confirm the deletion
 
-## 🔐 Security Features
+## Security Features
 
 - **Password Security**: Password hashing using `password_hash()` with bcrypt algorithm
 - **SQL Injection Prevention**: Prepared statements with PDO
@@ -279,7 +226,7 @@ The database includes test users with the password `password123`:
 - **Directory Protection**: Directory browsing disabled via `.htaccess`
 - **CSRF Protection**: Ready for enhancement (can be added to forms)
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /controllers/AuthController.php?action=login` - User login
@@ -301,7 +248,7 @@ The database includes test users with the password `password123`:
 - `POST /controllers/ProfileController.php?action=change_password` - Change password
 - `GET /controllers/ProfileController.php?action=get` - Get profile data
 
-## 📁 Additional Files
+## Additional Files
 
 ### .env.example
 Template file for environment configuration. Contains all necessary environment variables with default values. Copy this to `.env` and customize for your environment.
@@ -314,67 +261,15 @@ Apache web server configuration file that provides:
 - Error logging settings
 - Performance optimizations (compression)
 
-### .gitignore
-Specifies files and directories to be ignored by Git, including:
-- Environment files (`.env`)
-- Uploaded files (`public/uploads/*`)
-- IDE configuration files
-- System files (`.DS_Store`, `Thumbs.db`)
-- Dependency directories (`vendor/`, `node_modules/`)
-- Log files and temporary files
-
-## 🎯 Usage
-Specifies files and directories to be ignored by Git, including:
-- Environment files (`.env`)
-- Uploaded files (`public/uploads/*`)
-- IDE configuration files
-- System files (`.DS_Store`, `Thumbs.db`)
-- Dependency directories (`vendor/`, `node_modules/`)
-- Log files and temporary files
-
-## ⚠️ Troubleshooting
-
-### Upload Directory Permissions
-If you encounter issues uploading files:
-```bash
-chmod -R 755 public/uploads
-# On some systems, you may need:
-chmod -R 777 public/uploads
-```
-
-### .htaccess Not Working
-- Ensure `mod_rewrite` is enabled in Apache
-- Check that `AllowOverride All` is set in your Apache configuration
-- For PHP built-in server, `.htaccess` features won't work
-
-### Database Connection Errors
-- Verify credentials in `.env` file
-- Ensure MySQL service is running
-- Check that the database exists: `mysql -u root -p -e "SHOW DATABASES;"`
-
-### Session Issues
-- Ensure PHP session directory is writable
-- Check `session.save_path` in `php.ini`
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👤 Author
+## Author
 
 Nethal Fernando
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Tailwind CSS for the beautiful UI components
 - PHP community for excellent documentation

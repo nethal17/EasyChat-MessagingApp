@@ -1,4 +1,4 @@
-# EasyChat - Mini Web Application
+# EasyChat - Simple Messaging App
 
 A complete messaging web application built with PHP, MySQL, and modern frontend technologies. Features include user authentication, profile management, and a real-time two-way messaging system.
 

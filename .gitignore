@@ -1,0 +1,44 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore environment variables
+.env
+
+# Ignore uploaded files (but keep directories)
+public/uploads/profiles/*
+!public/uploads/profiles/.gitkeep
+public/uploads/messages/*
+!public/uploads/messages/.gitkeep
+
+# Ignore logs
+*.log
+error_log
+
+# Ignore config files with sensitive data (optional)
+# config/database.php
+
+# Ignore composer dependencies (if using composer)
+vendor/
+composer.lock
+
+# Ignore node modules (if using npm)
+node_modules/
+package-lock.json
+
+# Ignore temporary files
+tmp/
+temp/
+cache/
+
+# Ignore backup files
+*.bak
+*.backup
+*~

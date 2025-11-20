@@ -14,9 +14,9 @@ if (isLoggedIn()) {
     <title>Register - Message App</title>
     <script src="https://cdn.tailwindcss.com"></script>    
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto px-4 py-16">
-        <div class="max-w-md mx-auto">
+<body class="bg-gray-100 min-h-screen flex items-center">
+    <div class="container mx-auto px-4 py-4">
+        <div class="max-w-md mx-auto mt-4">
             <!-- Registration Form -->
             <div class="bg-white rounded-xl p-8 mb-4 shadow-lg">
                 <div class="text-center mb-8">

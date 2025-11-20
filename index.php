@@ -14,12 +14,12 @@ if (isLoggedIn()) {
     <title>Message App - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto px-4 py-16">
+<body class="bg-gray-100 min-h-screen flex items-center">
+    <div class="container mx-auto px-4 py-4">
         <div class="max-w-md mx-auto">
 
             <!-- Login Form -->
-            <div class="bg-white rounded-xl p-8 mb-4 mt-32 shadow-lg">
+            <div class="bg-white rounded-xl p-8 mb-4 shadow-lg">
                 <div class="text-center mb-8">
                     <h1 class="text-4xl font-bold text-blue-600 mb-2 flex items-center justify-center gap-2">
                         <svg class="w-10 h-10 inline text-blue-600 bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">

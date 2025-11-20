@@ -37,8 +37,17 @@ document.getElementById('profileForm')?.addEventListener('submit', async (e) => 
     
     // Client-side validation
     const email = formData.get('email');
+    const phone = formData.get('phone');
+    
     if (!validateEmail(email)) {
         errorDiv.innerHTML = 'Please enter a valid email address';
+        errorDiv.classList.remove('hidden');
+        return;
+    }
+    
+    // Validate phone number if provided
+    if (phone && !validatePhone(phone)) {
+        errorDiv.innerHTML = 'Please enter a valid phone number (10 digits)';
         errorDiv.classList.remove('hidden');
         return;
     }
@@ -74,6 +83,12 @@ document.getElementById('profileForm')?.addEventListener('submit', async (e) => 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+}
+
+// Phone validation helper
+function validatePhone(phone) {
+    const re = /^[0-9]{10}$/;
+    return re.test(phone);
 }
 
 // Change Password Modal functionality
@@ -133,8 +148,10 @@ changePasswordForm?.addEventListener('submit', async (e) => {
         return;
     }
     
-    if (newPassword.length < 6) {
-        errorDiv.innerHTML = 'New password must be at least 6 characters long';
+    // Validate new password complexity
+    const passwordErrors = validatePassword(newPassword);
+    if (passwordErrors.length > 0) {
+        errorDiv.innerHTML = passwordErrors.join('<br>');
         errorDiv.classList.remove('hidden');
         return;
     }
@@ -190,3 +207,30 @@ changePasswordForm?.addEventListener('submit', async (e) => {
         errorDiv.classList.remove('hidden');
     }
 });
+
+// Password validation helper
+function validatePassword(password) {
+    const errors = [];
+    
+    if (password.length < 6) {
+        errors.push('Password must be at least 6 characters');
+    }
+    
+    if (!/[A-Z]/.test(password)) {
+        errors.push('Password must contain at least one uppercase letter');
+    }
+    
+    if (!/[a-z]/.test(password)) {
+        errors.push('Password must contain at least one lowercase letter');
+    }
+    
+    if (!/[0-9]/.test(password)) {
+        errors.push('Password must contain at least one number');
+    }
+    
+    if (!/[!@#$%^&*()\[\]{}<>,.?":;|_\-+=\\\/`~']/.test(password)) {
+        errors.push('Password must contain at least one special character');
+    }
+    
+    return errors;
+}

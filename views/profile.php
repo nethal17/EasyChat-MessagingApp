@@ -102,7 +102,11 @@ $userData = $userModel->getUserById(getCurrentUserId());
                             value="<?php echo htmlspecialchars($userData['email']); ?>"
                             required
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="you@example.com"
                         >
+                        <p class="mt-1 text-xs text-gray-500">
+                            Enter a valid email address
+                        </p>
                     </div>
 
                     <div class="mb-6">
@@ -115,7 +119,13 @@ $userData = $userModel->getUserById(getCurrentUserId());
                             name="phone" 
                             value="<?php echo htmlspecialchars($userData['phone'] ?? ''); ?>"
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="0771234567"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
                         >
+                        <p class="mt-1 text-xs text-gray-500">
+                            Optional. Must be exactly 10 digits (e.g., 0771234567)
+                        </p>
                     </div>
 
                     <div id="profileError" class="hidden mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg"></div>
@@ -186,8 +196,11 @@ $userData = $userModel->getUserById(getCurrentUserId());
                         required
                         minlength="6"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Enter new password (min 6 characters)"
+                        placeholder="Enter new password"
                     >
+                    <p class="mt-1 text-xs text-gray-500">
+                        Must contain at least 6 characters, including uppercase, lowercase, number, and special character
+                    </p>
                 </div>
 
                 <div class="mb-4">

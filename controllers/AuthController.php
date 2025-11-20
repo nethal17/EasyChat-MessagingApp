@@ -27,8 +27,8 @@ class AuthController {
             $errors[] = "Phone number is required";
         }
 
-        if (empty($_POST['phone']) || !preg_match('/^\+?[0-9]{7,15}$/', $_POST['phone'])) {
-            $errors[] = "Valid phone number is required";
+        if (empty($_POST['phone']) || !preg_match('/^[0-9]{10}$/', $_POST['phone'])) {
+            $errors[] = "Valid phone number is required (10 digits)";
         }
 
         if (empty($_POST['password'])) {
@@ -57,7 +57,7 @@ class AuthController {
             }
             
             // Check for special character
-            if (!preg_match('/[!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/;\'`~]/', $password)) {
+            if (!preg_match('/[!@#$%^&*()?,."{}\/|<>:;\'`~=\[\]\-\+]/', $password)) {
                 $errors[] = "Password must contain at least one special character";
             }
         }
